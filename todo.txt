@@ -1,0 +1,13 @@
+1.) Implement cell by cell movement.  Stop moving when key released.
+Move only one cell.
+-- keyReleased setDir(0, 0);
+
+2.)  Use the mouse to move the snake.  Any direction.
+
+3.)  Make food a class.  base and child classes for types
+of food.  Food types for powerups that alter snake behavior.
+
+4.)  My snake eats the food and grows but when food is eaten
+need to test the type of food.  Wrong color = gameOver.
+LastFood = newLevel()
+
