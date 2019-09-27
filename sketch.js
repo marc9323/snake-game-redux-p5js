@@ -33,8 +33,18 @@ function draw(){
         // snake ate food, pick a new food location
         foodLocation();
     }
+
+    // check bounds
+    //snake.checkBounds();
     snake.update();
     snake.show();
+
+    // end game?
+    if(snake.endGame()) {
+        print("END GAME*****************");
+        background(255, 0, 0);
+        noLoop(); // shut down the sketch
+    }
     
 
     // make food red
@@ -44,14 +54,30 @@ function draw(){
     rect(food.x, food.y, 1, 1); // scales up
 }
 
+// for testing -- no good, click to focus
+// snake grows, head and part occupy same space in 
+// check, game ends
+// function mousePressed(){
+//     snake.grow();
+// }
+
 function keyPressed() {
-    if(keyCode === LEFT_ARROW ){
-        snake.setDir(-1, 0);
-    } else if(keyCode === RIGHT_ARROW) {
-        snake.setDir(1, 0);
-    } else if(keyCode === DOWN_ARROW) {
-        snake.setDir(0, 1);
-    } else if(keyCode === UP_ARROW) {
-        snake.setDir(0, -1);
-    }
+    let head = snake.body[snake.body.length - 1];
+    print("HEAD: " + head);
+    
+        if(keyCode === LEFT_ARROW ){
+            snake.setDir(-1, 0);
+        } else if(keyCode === RIGHT_ARROW) {
+            snake.setDir(1, 0);
+        } else if(keyCode === DOWN_ARROW) {
+            snake.setDir(0, 1);
+        } else if(keyCode === UP_ARROW) {
+            snake.setDir(0, -1);
+        }
+
+        // testing, grow snake
+        if(key == ' ') {
+            snake.grow();
+        }
+    
 }

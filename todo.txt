@@ -11,3 +11,10 @@ of food.  Food types for powerups that alter snake behavior.
 need to test the type of food.  Wrong color = gameOver.
 LastFood = newLevel()
 
+5.)  The first element of the snakes body visually
+is the last element of the array.  The last element
+of the array is the head.  The first [0] element of the array
+is the tail.
+
+my bounds checking was failing because I was checking length - 1
+element.  That is the element AFTER the head.
